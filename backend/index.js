@@ -32,7 +32,7 @@ import userEventRoutes from "./src/routes/userEvents.routes.js"
 const app = express();
 
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL, methods: '*', credentials:true }));
+app.use(cors({ origin: process.env.FRONTEND_URL,  credentials:true }));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(bodyParser.json());
