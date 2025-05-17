@@ -30,6 +30,7 @@ import userEventRoutes from "./src/routes/userEvents.routes.js"
 
 
 const app = express();
+await connectDB();
 
 // Middleware
 app.use(cors({ origin: process.env.FRONTEND_URL,  credentials:true }));
@@ -88,7 +89,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  connectDB();
+  
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   
 });
