@@ -82,9 +82,11 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { Menu, X, User, LogOut, ChevronDown } from 'lucide-react';
+import axios from 'axios';
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -93,6 +95,10 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const location = useLocation();
+
+  const navigate = useNavigate();
+
+
 
 
   useEffect(() => {
@@ -129,9 +135,11 @@ const Header = () => {
     checkAuth();
   }, []);
 
-  const handleLogout = () => {
-    // Handle logout logic
+  const handleLogout = async () => {
+    
     localStorage.removeItem('user');
+    navigate('/');
+    
     setIsLoggedIn(false);
     setUser(null);
     setProfileDropdownOpen(false);

@@ -55,7 +55,7 @@ export const adminLogin = async (req, res, next) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: false,
-      sameSite: "Strict",
+      sameSite: "None",
     });
     res.status(200).json({ message: "Login Successful!", token });
   } catch (error) {
