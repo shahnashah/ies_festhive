@@ -59,6 +59,12 @@ export const login = async (req, res, next) => {
 
     console.log("i am here")
     const { token, userInfo } = generateToken(user, res);
+    res.cookie('jwt', token, {
+    httpOnly: true,        // can't be accessed via JS on frontend
+    secure: true,          // send only over HTTPS (set false for dev)
+    sameSite: 'Strict',    // CSRF protection
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+  });
     res.status(200).json({
       success: true,
       message: `Welcome Back, ${user.fullName}!`,
