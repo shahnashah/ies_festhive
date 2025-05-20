@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,6 +15,9 @@ import {
 } from "react-icons/fi";
 import Chart from "react-apexcharts";
 import Dashboard from "./Dashboard";
+import Footer from "@/components/Footer";
+import { PartyPopper } from 'lucide-react';
+
 //import ManageProducts from "./ManageProduct";
 //import AddProduct from "./AddProduct";
 
@@ -111,8 +114,9 @@ const AdminDashboard = () => {
       ${isSmallScreen && !isSidebarOpen ? "-translate-x-full" : "translate-x-0"}
       transition-transform duration-300 ease-in-out`}
     >
+      
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Admin Panel</h2>
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent">Admin Panel</h2>
         {isSmallScreen && (
           <button
             onClick={() => setIsSidebarOpen(false)}
@@ -133,7 +137,7 @@ const AdminDashboard = () => {
             key={tab}
             className={`w-full flex items-center space-x-3 py-3 px-5 rounded-lg text-lg ${
               activeTab === tab
-                ? "bg-[#A0522D] text-white"
+                ? "bg-gradient-to-r from-purple-600 to-yellow-700 text-white"
                 : "bg-gray-200 hover:bg-gray-300"
             }`}
             onClick={() => {
@@ -145,10 +149,14 @@ const AdminDashboard = () => {
           </button>
         ))}
       </div>
+      
     </motion.aside>
+    
   );
+  
 
   return (
+    <>
     <div className="flex min-h-screen bg-gray-100">
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white shadow-md z-40 flex justify-between items-center p-4">
@@ -181,15 +189,19 @@ const AdminDashboard = () => {
       )}
 
       {/* Main Content */}
+      
       <div className={`flex-1 p-8 ${isSmallScreen ? "mt-16" : ""}`}>
+         <Link to="/" className="bg-gradient-to-r from-purple-600 to-yellow-700  text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center w-50 mb-3">
+                ← Back to Home
+              </Link>
         <AnimatePresence mode="wait">
           {activeTab === "dashboard" && (
             <motion.div key="dashboard">
               <div className="hidden md:flex justify-between items-center mb-4">
-                <h1 className="text-3xl font-bold">Dashboard Overview</h1>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent">Dashboard Overview</h1>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                  className="flex items-center space-x-2 bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-red-600"
                 >
                   <FiLogOut /> <span>Logout</span>
                 </button>
@@ -210,8 +222,13 @@ const AdminDashboard = () => {
                   <h2 className="text-2xl font-bold mt-2">{contacts.length}</h2>
                   <p className="text-gray-500">Total Contact Messages</p>
                 </div>
+                <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center">
+                  <PartyPopper size={40} className="text-purple-700" />
+                  <h2 className="text-2xl font-bold mt-2">{contacts.length}</h2>
+                  <p className="text-gray-500">Total Event</p>
+                </div>
               </div>
-              <div className="p-6 bg-white shadow-lg rounded-lg">
+              <div className="p-15 bg-white shadow-lg rounded-lg ">
                 <Chart
                   options={salesData.options}
                   series={salesData.series}
@@ -225,7 +242,7 @@ const AdminDashboard = () => {
           {/* Rest of the existing content remains the same */}
           {activeTab === "users" && (
             <motion.div key="users">
-              <h1 className="text-3xl font-bold mb-4">User List</h1>
+              <h1 className="text-3xl font-bold mb-4 ">User List</h1>
               <div className="mb-4 flex items-center">
                 <input
                   type="text"
@@ -288,7 +305,12 @@ const AdminDashboard = () => {
           
         </AnimatePresence>
       </div>
-    </div>
+     
+       </div>
+       <Footer />
+     </>
+ 
+   
   );
 };
 

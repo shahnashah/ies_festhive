@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaUser, FaEdit, FaShoppingBag } from "react-icons/fa";
+import { FaUser, FaEdit,FaArrowLeft } from "react-icons/fa";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 
 const UserProfile = () => {
@@ -81,9 +82,17 @@ const UserProfile = () => {
     <Header />
     <div className="container mx-auto py-8 px-4 md:px-0">
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="bg-gradient-to-r from-[#5A3E36] to-[#A0522D] text-white p-6">
+        <div className="bg-gradient-to-r from-purple-600 to-yellow-700 text-white p-6 flex items-center justify-between">
           <h1 className="text-2xl font-bold">My Profile</h1>
+           <button
+                      onClick={() => navigate("/")}
+                      className="flex items-center text-white hover:text-gray-200"
+                    >
+                      <FaArrowLeft className="mr-1" /> Back
+                    </button>
+           
         </div>
+          
 
         <div className="flex flex-col md:flex-row">
           {/* Profile Image Section */}
@@ -109,7 +118,7 @@ const UserProfile = () => {
             <p className="text-gray-500 text-center mb-4">{user.email}</p>
             <button
               onClick={handleEditProfile}
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-[#A0522D] text-white rounded-md hover:bg-[#8B4513] transition w-full"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-yellow-700 text-white rounded-md hover:bg-[#8B4513] transition w-full"
             >
               <FaEdit /> Edit Profile
             </button>
@@ -146,7 +155,7 @@ const UserProfile = () => {
                Event History
             </h3>
 
-            {user.orders && user.orders.length > 0 ? (
+            {/* {user.orders && user.orders.length > 0 ? (
               <div className="border rounded-md overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
@@ -201,7 +210,12 @@ const UserProfile = () => {
               <div className="text-center py-4 border rounded-md bg-gray-50">
                 <p className="text-gray-500">No event history available</p>
               </div>
-            )}
+            )} */}
+               <Link to="/userEvents">
+  <div className="text-center py-4 border rounded-md bg-gradient-to-r from-purple-600 to-yellow-700 cursor-pointer transition duration-200 hover:scale-105">
+    <p className="text-white"> Let's See Your Participation</p>
+  </div>
+</Link>
           </div>
         </div>
       </div>

@@ -299,10 +299,10 @@ export default function Dashboard() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
           <div>
-            <CardTitle className="text-2xl font-bold">Events Dashboard</CardTitle>
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent">Events Dashboard</CardTitle>
             <CardDescription>Manage your upcoming and past events</CardDescription>
           </div>
-          <Button onClick={openCreateDialog} className="flex items-center gap-2">
+          <Button onClick={openCreateDialog} className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-yellow-700">
             <PlusCircle size={16} />
             <span>Add Event</span>
           </Button>

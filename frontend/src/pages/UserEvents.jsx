@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Calendar, X, Loader2 } from "lucide-react";
 import axios from "axios";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 const API_BASE_URL = `${import.meta.env.VITE_BACKEND_URL}` || "";
 
@@ -98,9 +99,14 @@ export default function MyEvents() {
     <>
     <Header />
     <div className="bg-white shadow rounded-lg">
+      
       <div className="border-b border-gray-200 px-6 py-4">
-        <h2 className="text-xl font-semibold text-gray-800">My Registered Events</h2>
-        <p className="text-gray-600 text-sm mt-1">Events you've registered for</p>
+         <Link to="/event" className="bg-gradient-to-r from-purple-600 to-yellow-700  text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center w-50 mb-3">
+                ← Back to Event
+              </Link>
+        
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent text-center mt-0 ">My Registered Events</h2>
+        <p className="text-gray-600 text-lg mt-1">Events you've registered for</p>
       </div>
       <div className="divide-y divide-gray-200">
         {events.map((event) => (

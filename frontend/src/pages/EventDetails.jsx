@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { features } from './features'; // Using the original path from your file
+import Footer from '@/components/Footer';
+import concert from '../assets/assets/concert.jpg'
 
 export default function EventDetails() {
   const { id } = useParams();
@@ -15,13 +17,15 @@ export default function EventDetails() {
   });
   const countdownRef = useRef(null);
 
+  
+
   // Event images for gallery slider with AI generated images
   const galleryImages = [
     { url: event?.img || "https://source.unsplash.com/random/800x450/?event", caption: "Main Event Hall" },
-    { url: "https://source.unsplash.com/random/800x450/?ceremony", caption: "Opening Ceremony" },
-    { url: "https://source.unsplash.com/random/800x450/?presentation", caption: "Speaker Presentation" },
-    { url: "https://source.unsplash.com/random/800x450/?audience", caption: "Audience Engagement" },
-    { url: "https://source.unsplash.com/random/800x450/?networking", caption: "Networking Session" },
+    { url: concert, caption: "Opening Ceremony" },
+    { url: event?.img || "https://source.unsplash.com/random/800x450/?presentation", caption: "Speaker Presentation" },
+    { url: event?.img || "https://source.unsplash.com/random/800x450/?audience", caption: "Audience Engagement" },
+    { url: event?.img || "https://source.unsplash.com/random/800x450/?networking", caption: "Networking Session" },
   ];
 
   // Upcoming events with AI generated images
@@ -30,25 +34,25 @@ export default function EventDetails() {
       id: 1, 
       title: "Annual Tech Symposium", 
       date: "June 12, 2025", 
-      image: "https://source.unsplash.com/random/600x400/?tech" 
+      img: concert
     },
     { 
       id: 2, 
       title: "Summer Music Festival", 
       date: "July 3, 2025", 
-      image: "https://source.unsplash.com/random/600x400/?music" 
+       img: concert
     },
     { 
       id: 3, 
       title: "Leadership Workshop", 
       date: "July 18, 2025", 
-      image: "https://source.unsplash.com/random/600x400/?leadership" 
+       img: concert
     },
     { 
       id: 4, 
       title: "Alumni Meetup", 
       date: "August 5, 2025", 
-      image: "https://source.unsplash.com/random/600x400/?alumni" 
+       img: concert
     },
   ];
 
@@ -293,7 +297,7 @@ export default function EventDetails() {
               <div className="space-y-4">
                 <div className="flex items-center p-2 rounded-lg hover:bg-white/5 transition duration-300">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex-shrink-0 overflow-hidden">
-                    <img src="https://source.unsplash.com/random/100x100/?portrait,man" alt="Ravi Kumar" className="w-full h-full object-cover" />
+                    <img src={concert} alt="Ravi Kumar" className="w-full h-full object-cover" />
                   </div>
                   <div className="ml-4">
                     <h4 className="font-semibold text-yellow-200">Ravi Kumar</h4>
@@ -303,7 +307,7 @@ export default function EventDetails() {
                 
                 <div className="flex items-center p-2 rounded-lg hover:bg-white/5 transition duration-300">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex-shrink-0 overflow-hidden">
-                    <img src="https://source.unsplash.com/random/100x100/?portrait,woman" alt="Sophia Patel" className="w-full h-full object-cover" />
+                    <img src={concert} alt="Sophia Patel" className="w-full h-full object-cover" />
                   </div>
                   <div className="ml-4">
                     <h4 className="font-semibold text-yellow-200">Sophia Patel</h4>
@@ -313,7 +317,7 @@ export default function EventDetails() {
                 
                 <div className="flex items-center p-2 rounded-lg hover:bg-white/5 transition duration-300">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex-shrink-0 overflow-hidden">
-                    <img src="https://source.unsplash.com/random/100x100/?portrait" alt="Michael Tran" className="w-full h-full object-cover" />
+                    <img src={concert} alt="Michael Tran" className="w-full h-full object-cover" />
                   </div>
                   <div className="ml-4">
                     <h4 className="font-semibold text-yellow-200">Michael Tran</h4>
@@ -387,7 +391,7 @@ export default function EventDetails() {
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
-                    src={upcomingEvent.image} 
+                    src={upcomingEvent.img} 
                     alt={upcomingEvent.title}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
                   />
@@ -412,36 +416,9 @@ export default function EventDetails() {
       </div>
 
       {/* Footer - Enhanced with social media icons */}
-      <footer className="bg-black/80 backdrop-blur-sm text-gray-400 py-10 border-t border-yellow-900/50">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center mb-6 md:mb-0">
-            <div className="w-12 h-12 mr-4 rounded-full overflow-hidden bg-gradient-to-r from-yellow-600 to-yellow-800 p-0.5">
-              <div className="bg-black rounded-full w-full h-full flex items-center justify-center">
-                <span className="text-yellow-500 text-xl font-bold">IE</span>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">IES Festhive</h3>
-              <p className="text-sm">Creating memorable experiences</p>
-            </div>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-end">
-            <p className="mb-2">© {new Date().getFullYear()} IES Festhive</p>
-            <div className="flex space-x-4 mt-2">
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-600/70 transition-colors cursor-pointer">
-                <span>📱</span>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-600/70 transition-colors cursor-pointer">
-                <span>💌</span>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-600/70 transition-colors cursor-pointer">
-                <span>🌐</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div className='border-t border-gray-800'>
+     <Footer />
+     </div>
 
       {/* Add custom animation keyframes */}
       <style jsx>{`

@@ -80,8 +80,8 @@ const SignupPage = () => {
         transition={{ duration: 0.5 }}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-[#d2a679]"
       >
-        <h2 className="text-2xl font-semibold text-center text-[#5c4033] mb-6">
-          Join <span className="text-[#d2a679]">SynVilla</span>
+        <h2 className="text-2xl font-semibold text-center bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent mb-6">
+          Join <span className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent">IES FestHive</span>
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -169,7 +169,7 @@ const SignupPage = () => {
             />
             <label>
               I agree to the {" "}
-              <Link to="/terms" className="text-[#d2a679] hover:underline">
+              <Link to="/terms" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent border-b-2 border-transparent hover:border-purple-500">
                 Terms and Conditions
               </Link>
             </label>
@@ -179,7 +179,7 @@ const SignupPage = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-[#d2a679] text-white py-2 rounded-lg hover:bg-[#c4a484] transition"
+            className="w-full bg-gradient-to-r from-purple-600 to-yellow-700 text-white py-2 rounded-lg hover:bg-[#c4a484] transition"
           >
             Sign Up
           </motion.button>
@@ -187,7 +187,7 @@ const SignupPage = () => {
 
         <p className="text-center text-[#5c4033] mt-4">
           Already have an account? {" "}
-          <Link to="/login" className="text-[#d2a679] hover:underline">
+          <Link to="/login" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent border-b-2 border-transparent hover:border-purple-500">
             Login
           </Link>
         </p>

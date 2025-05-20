@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight,MapPin,ArrowRight } from 'lucide-react';
 import img from "../assets/college_image.jpg";
 import React from 'react';
 import Contact from '../pages/Contact';
@@ -149,7 +149,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-md p-4">
-                  <img src={feature.img} alt={feature.title} className="w-full h-48 object-cover rounded-md" />
+                  <img src={feature.img} alt={feature.title} className="w-full h-67 object-cover rounded-md" />
                   <h3 className="text-xl font-semibold mt-4 mb-2">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                   <div className="flex justify-center mt-6">
@@ -211,6 +211,51 @@ export default function Dashboard() {
                   <p className="text-yellow-600 ">{feature.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+            {/* Map Section */}
+        <section className="py-20 bg-black">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-yellow-600 bg-clip-text text-transparent mb-6">
+                FIND US
+              </h2>
+              <p className="text-xl text-yellow-600 max-w-4xl mx-auto mb-10">
+                Visit our campus at IES University Bhopal. We're located in a convenient spot with easy access from all
+                parts of the city.
+              </p>
+            </div>
+
+            <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-600">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.2093742113196!2d77.4366863!3d23.2332395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c4268ed6d2f4d%3A0x9b022c69c7e3b425!2sIES%20University!5e0!3m2!1sen!2sin!4v1716042992788!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="IES University Location"
+                className="w-full"
+              ></iframe>
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-6">
+              <div className="flex items-center text-yellow-600">
+                <MapPin className="w-6 h-6 mr-2" />
+                <p className="text-lg">IES University, Ratibad, Bhopal, Madhya Pradesh 462044</p>
+              </div>
+              <a
+                href="https://goo.gl/maps/YourActualGoogleMapsLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-yellow-600 hover:text-yellow-400 transition-colors"
+              >
+                <span className="mr-2">Get Directions</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </section>

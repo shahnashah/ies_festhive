@@ -105,7 +105,7 @@ const LoginPage = () => {
 
         <p className="text-center text-[#5c4033] mt-4">
           Don't have an account?{" "}
-          <Link to="/signup" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent hover:underline">
+          <Link to="/signup" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent border-b-2 border-transparent hover:border-purple-500">
             Sign Up
           </Link>
         </p>
@@ -114,7 +114,7 @@ const LoginPage = () => {
           Forgot your password?{" "}
           <Link
             to="/forgot-password"
-            className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent hover:underline"
+            className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent border-b-2 border-transparent hover:border-purple-500"
           >
             Reset Password
           </Link>
@@ -122,7 +122,7 @@ const LoginPage = () => {
 
         <p className="text-center text-[#5c4033] mt-4">
           Are you an admin?{" "}
-          <Link to="/admin-login" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent hover:underline">
+          <Link to="/admin-login" className="bg-gradient-to-r from-purple-600 to-yellow-700 bg-clip-text text-transparent border-b-2 border-transparent hover:border-purple-500">
             Login as Admin
           </Link>
         </p>
